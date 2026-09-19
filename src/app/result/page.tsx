@@ -107,7 +107,7 @@ export default async function ResultPage({
         </div>
 
         <div className="result-actions">
-          <ShareButton type={info.code} nickname={info.nickname} />
+          <ShareButton />
           <Link href="/" className="btn btn-secondary btn-block">
             다시 검사하기
           </Link>
