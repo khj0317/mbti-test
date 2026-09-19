@@ -112,6 +112,11 @@ export async function GET(request: Request) {
         { name: "Noto Sans KR", data: fontDataRegular, style: "normal", weight: 400 },
         { name: "Noto Sans KR", data: fontData, style: "normal", weight: 700 },
       ],
+      // Only 17 distinct images ever exist (16 types + the default card), so let
+      // the CDN cache each one indefinitely instead of re-rendering per request.
+      headers: {
+        "Cache-Control": "public, max-age=31536000, immutable",
+      },
     },
   );
 }
