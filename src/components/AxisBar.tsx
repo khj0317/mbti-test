@@ -1,4 +1,4 @@
-import type { AxisResult } from "../utils/scoring";
+import type { AxisResult } from "@/lib/scoring";
 
 const AXIS_LABELS: Record<string, string> = {
   E: "외향",
@@ -12,28 +12,26 @@ const AXIS_LABELS: Record<string, string> = {
 };
 
 export default function AxisBar({ result }: { result: AxisResult }) {
-  const total = result.countA + result.countB || 1;
-  const pctA = Math.round((result.countA / total) * 100);
-  const pctB = 100 - pctA;
+  const { pctA, pctB } = result;
 
   return (
-    <div className="axis-bar">
+    <div>
       <div className="axis-bar-labels">
-        <span className={result.winner === result.poleA ? "axis-pole axis-pole-winner-a" : "axis-pole"}>
+        <span className={result.winner === result.poleA ? "axis-pole-winner-a" : ""}>
           {result.poleA} · {AXIS_LABELS[result.poleA]} {pctA}%
         </span>
-        <span className={result.winner === result.poleB ? "axis-pole axis-pole-winner-b" : "axis-pole"}>
+        <span className={result.winner === result.poleB ? "axis-pole-winner-b" : ""}>
           {AXIS_LABELS[result.poleB]} · {result.poleB} {pctB}%
         </span>
       </div>
       <div className="axis-bar-track" role="img" aria-label={`${result.poleA} ${pctA}%, ${result.poleB} ${pctB}%`}>
         <div
           className="axis-bar-segment axis-bar-segment-a"
-          style={{ width: `${pctA}%`, minWidth: pctA > 0 ? "4px" : 0 }}
+          style={{ width: `${pctA}%`, minWidth: pctA > 0 ? "6px" : 0 }}
         />
         <div
           className="axis-bar-segment axis-bar-segment-b"
-          style={{ width: `${pctB}%`, minWidth: pctB > 0 ? "4px" : 0 }}
+          style={{ width: `${pctB}%`, minWidth: pctB > 0 ? "6px" : 0 }}
         />
       </div>
     </div>
