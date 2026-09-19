@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
-import { Gaegu, Gowun_Dodum, Noto_Sans_KR } from "next/font/google";
+import { Gowun_Dodum, Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 
 const heading = Gowun_Dodum({
   variable: "--font-heading",
   subsets: ["latin"],
   weight: "400",
-});
-
-const cute = Gaegu({
-  variable: "--font-cute",
-  subsets: ["latin"],
-  weight: ["400", "700"],
 });
 
 const body = Noto_Sans_KR({
@@ -27,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ko" className={`${heading.variable} ${cute.variable} ${body.variable}`}>
+    <html lang="ko" className={`${heading.variable} ${body.variable}`}>
       <body>{children}</body>
     </html>
   );
