@@ -70,7 +70,7 @@ export default async function ResultPage({
 
         <div className="result-actions">
           <ShareButton type={info.code} nickname={info.nickname} />
-          <Link href="/quiz" className="btn btn-secondary btn-block">
+          <Link href="/" className="btn btn-secondary btn-block">
             다시 검사하기
           </Link>
         </div>

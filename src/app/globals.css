@@ -221,7 +221,8 @@ button {
 }
 
 .question-text {
-  font-size: 1.35rem;
+  font-family: var(--font-cute), var(--font-heading), sans-serif;
+  font-size: 1.6rem;
   line-height: 1.5;
   margin: 8px 0 32px;
   min-height: 3.4em;
