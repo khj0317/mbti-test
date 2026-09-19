@@ -1,5 +1,7 @@
 # MBTI 성격 유형 검사
 
+**🔗 Live Demo: [mbti-test-smoky.vercel.app](https://mbti-test-smoky.vercel.app)**
+
 40문항 5점 리커트 척도(매우 그렇지 않다 ~ 매우 그렇다)로 클래식 MBTI 16유형을 진단하는 웹 서비스입니다. 서버도 DB도 없이, 검사 결과를 URL에 그대로 담아서 링크 하나만 보내면 로그인 없이도 친구가 똑같은 결과 화면을 볼 수 있습니다.
 
 기획부터 문항 설계, 프론트엔드 구현, UI 디자인까지 혼자 진행한 프로젝트입니다.
@@ -29,6 +31,8 @@
 ## 기술 스택
 
 **Frontend** — Next.js 16(App Router) · React 19 · TypeScript
+
+**Infra** — Vercel (배포 · GitHub 연동 자동 배포)
 
 ## 기술적으로 눈여겨볼 부분
 
