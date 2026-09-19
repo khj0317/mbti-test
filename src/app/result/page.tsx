@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AxisBar from "@/components/AxisBar";
@@ -7,10 +8,47 @@ import { typeInfo } from "@/data/types";
 import { axisResultsFromPercents } from "@/lib/scoring";
 import type { Axis } from "@/data/questions";
 
+type ResultSearchParams = Promise<Record<string, string | string[] | undefined>>;
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: ResultSearchParams;
+}): Promise<Metadata> {
+  const sp = await searchParams;
+  const type = typeof sp.type === "string" ? sp.type.toUpperCase() : "";
+  const info = typeInfo[type];
+
+  if (!info) {
+    return { title: "결과를 찾을 수 없어요 | MBTI 성격 유형 검사" };
+  }
+
+  const title = `나의 MBTI는 ${info.code} (${info.nickname}) | MBTI 성격 유형 검사`;
+  const description = info.description;
+  const ogImageUrl = `/api/og?type=${info.code}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      images: [{ url: ogImageUrl, width: 1200, height: 630, alt: `${info.code} ${info.nickname}` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImageUrl],
+    },
+  };
+}
+
 export default async function ResultPage({
   searchParams,
 }: {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
+  searchParams: ResultSearchParams;
 }) {
   const sp = await searchParams;
   const type = typeof sp.type === "string" ? sp.type.toUpperCase() : "";
