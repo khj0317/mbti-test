@@ -135,22 +135,6 @@
 
 </details>
 
-## 로컬 실행
-
-```bash
-npm install
-npm run dev
-```
-
-http://localhost:3000 에서 확인할 수 있습니다.
-
-```bash
-npm run build && npm run start   # 프로덕션 빌드
-npm test                         # 단위 테스트
-```
-
-배포 환경에서는 링크 미리보기에 쓰이는 사이트 주소를 `NEXT_PUBLIC_SITE_URL` 환경 변수로 지정합니다. 없으면 Vercel이 넣어 주는 배포 주소(`VERCEL_URL`)를 씁니다.
-
 ## 프로젝트 구조
 
 ```
