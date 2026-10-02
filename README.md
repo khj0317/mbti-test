@@ -28,9 +28,15 @@
 |---|---|
 | ![질문 화면](docs/screenshots/02-quiz.png) | ![결과 화면](docs/screenshots/03-result.png) |
 
-| 모바일 |
-|---|
-| ![모바일 화면](docs/screenshots/04-mobile.png) |
+**모바일**
+
+<table>
+  <tr>
+    <td><img src="docs/screenshots/04-mobile-home.png" width="240" alt="모바일 홈"></td>
+    <td><img src="docs/screenshots/05-mobile-quiz.png" width="240" alt="모바일 질문"></td>
+    <td><img src="docs/screenshots/06-mobile-result.png" width="240" alt="모바일 결과"></td>
+  </tr>
+</table>
 
 ## 동작 구조
 
